@@ -44,7 +44,7 @@ export default function Typewriter({
     }, [text, isDeleting, index, words, typingSpeed, deleteSpeed, delayBetween]);
 
     return (
-        <div className="text-xl pt-3">
+        <div className="text-2xl pt-5">
             {text}
             <span className="animate-pulse">|</span>
         </div>
