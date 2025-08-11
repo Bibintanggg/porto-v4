@@ -14,7 +14,7 @@ const SocialIcon = ({
   colors: string[];
 }) => (
   <motion.div
-    className="relative p-0.5 cursor-pointer w-10 h-10 flex justify-center items-center"
+    className="relative p-0.5 cursor-pointer w-7 h-7 flex justify-center items-center "
     whileHover="hover"
     initial="initial"
   >
@@ -65,50 +65,39 @@ const SocialIcon = ({
 
 export default function Home() {
   return (
-    <div className="relative h-full w-full bg-slate-950 min-h-screen">
-      <div className="absolute bottom-0 left-0 right-0 top-0 
-      bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] 
-      bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+    <div className="relative h-full w-full min-h-screen">
+      <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
       
       <div className="relative z-10 min-h-screen flex flex-col md:flex-row justify-center items-start px-3 md:px-6 gap-12 md:gap-52 pt-12 md:pt-32">
         <div className="flex flex-col font-mono">
           <Navbar />
           <div className="pt-3 md:pt-6">
-            <div className="flex gap-5 mb-2">
+            <div className="flex gap-5 mb-2 backdrop-blur-5xl bg-white/5 w-52 h-10 items-center mx-auto rounded-md justify-center">
               <a href="https://www.instagram.com/bintang.ydha_" target="_blank" rel="noopener noreferrer">
                 <SocialIcon
-                  icon={<FaInstagram size={23} className="rounded-md" />}
+                  icon={<FaInstagram size={20} className="rounded-md" />}
                   colors={["#f9ce34", "#ee2a7b", "#6228d7"]}
                 />
               </a>
               <SocialIcon
-                icon={<FaLinkedin size={23} className="rounded-md" />}
+                icon={<FaLinkedin size={20} className="rounded-md" />}
                 colors={["#0077B5", "#00A0DC", "#0077B5"]}
               />
               <SocialIcon
-                icon={<FaTiktok size={23} className="rounded-md" />}
+                icon={<FaTiktok size={20} className="rounded-md" />}
                 colors={["#25F4EE", "#FE2C55", "#000000"]}
               />
               <SocialIcon
-                icon={<FaGithub size={23} className="rounded-md" />}
+                icon={<FaGithub size={20} className="rounded-md" />}
                 colors={["#333333", "#6e5494", "#333333"]}
               />
             </div>
+            <div className="flex flex-col items-center text-center pt-3">
             <h1 className="font-bold text-2xl md:text-4xl mb-0.5">Hii! I'm Bintang Yudha</h1>
             <p className="font-normal text-base md:text-lg mb-1">Student from SMKN 46 Jakarta</p>
             <Typewriter words={["TECH ENTHUSIAST", "AI/ML ENTHUSIAST"]} />
+            </div>
           </div>
-        </div>
-
-        <div className="flex justify-center items-start w-full md:w-auto mt-4 md:mt-0">
-          <Image
-            src="/assets/bintangImg.jpeg"
-            width={220}
-            height={220}
-            alt="foto bintang"
-            className="rounded-xl w-[180px] h-[180px] md:w-[220px] md:h-[220px] object-cover"
-            priority
-          />
         </div>
       </div>
     </div>
