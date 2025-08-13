@@ -6,9 +6,10 @@ type CardProps = {
   children: ReactNode;
   className?: string;
   shiny?: boolean; 
+  setIsOpen?: (isOpen: boolean) => void;
 };
 
-export default function Card({ title, children, className, shiny = false }: CardProps) {
+export default function Card({ title, children, className, shiny = false, setIsOpen}: CardProps) {
   const baseClasses = `bg-white/10 rounded-xl p-4 shadow-lg backdrop-blur-md transition-transform duration-200 ${className}`;
 
   if (shiny) {

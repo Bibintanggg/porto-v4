@@ -5,12 +5,13 @@ import { AiOutlineProject } from "react-icons/ai";
 import { BiLogoTypescript, BiMusic } from "react-icons/bi";
 import { SiTailwindcss } from "react-icons/si";
 import Navbar from "../components/Navbar";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowForward, IoIosClose } from "react-icons/io";
 import { BsTools } from "react-icons/bs";
 import Typewriter from "../components/Typewriter";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Card from "../components/Card";
+import { useState } from "react";
 
 const SocialIcon = ({
   icon,
@@ -70,6 +71,8 @@ const SocialIcon = ({
 );
 
 export default function Home() {
+  const [showDetailedAbout, setShowDetailedAbout] = useState(false);
+
   return (
     <div className="relative h-full w-full min-h-[200vh] overflow-x-hidden">
       <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
@@ -126,33 +129,97 @@ export default function Home() {
 
           <div className="flex flex-col gap-2 font-mono">
             <div className="flex gap-2">
-              <Card shiny className="w-96 h-[200px]">
-                <div className="flex items-center gap-6">
-                  <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl">
-                    <FaUserNinja className="w-10 h-6 opacity-50 " />
+              {!showDetailedAbout && (
+                <Card shiny className="w-96 h-[200px]">
+                  <div className="flex items-center gap-6">
+                    <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl">
+                      <FaUserNinja className="w-10 h-6 opacity-50" />
+                    </div>
+                    <h1>About Me</h1>
                   </div>
-                  <h1>About Me</h1>
-                </div>
 
-                <div className=" w-full">
-                  <h1 className="text-sm mt-2">Hello.. Im Bintang Yudha Putra Purnomo, im from Jakarta and currently
-                    studying at SMKN 46 Jakarta. Im a student with passionate ...
-                  </h1>
-                </div>
+                  <div className="w-full">
+                    <p className="text-sm mt-2">
+                      Hello.. Im Bintang Yudha Putra Purnomo, im from Jakarta and currently
+                      studying at SMKN 46 Jakarta. Im a student with passionate ...
+                    </p>
+                  </div>
 
-                <div className="flex justify-between items-center mt-4">
-                  <div></div>
-                  <a href="#" className="flex items-center gap-1 hover:text-blue-400 transition-colors">
-                    More Details
-                    <IoIosArrowForward className="text-sm" />
-                  </a>
-                </div>
-
-              </Card>
+                  <div className="flex justify-between items-center mt-4">
+                    <div></div>
+                    <button 
+                      onClick={() => setShowDetailedAbout(true)}
+                      className="flex items-center gap-1 hover:text-blue-400 transition-colors"
+                    >
+                      More Details
+                      <IoIosArrowForward className="text-sm" />
+                    </button>
+                  </div>
+                </Card>
+              )}
               <div>
+              <AnimatePresence>
+                {showDetailedAbout && (
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Card shiny className="w-[600px] h-[400px] p-6 relative">
+                      <button 
+                        onClick={() => setShowDetailedAbout(false)}
+                        className="absolute top-4 right-4 p-1 hover:text-blue-400 transition-colors"
+                      >
+                        <IoIosClose size={24} />
+                      </button>
+                      
+                      <div className="flex items-center gap-6 mb-6">
+                        <div className="w-14 h-14 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl">
+                          <FaUserNinja className="w-10 h-6 opacity-50" />
+                        </div>
+                        <h1 className="text-xl font-bold">About Me</h1>
+                      </div>
+
+                      <div className="text-sm space-y-4 overflow-y-auto h-[280px] pr-4 thin-scrollbar">
+                        <p>
+                          Hello! I'm Bintang Yudha Putra Purnomo, a passionate technology enthusiast from Jakarta, Indonesia. 
+                          Currently, I'm pursuing my education at SMKN 46 Jakarta, where I'm developing my skills in software development.
+                        </p>
+                        
+                        <p>
+                          My journey in technology began when I was first introduced to programming in school. Since then, 
+                          I've developed a strong passion for web development.
+                        </p>
+                        
+                        <h2 className="font-bold mt-4 text-blue-400">Technical Skills</h2>
+                        <ul className="list-disc pl-5 space-y-2">
+                          <li>Frontend Development: React, TypeScript, Tailwind CSS, NextJS</li>
+                          <li>Backend Development: Laravel</li>
+                          <li>AI/ML: Basic understanding of machine learning concepts</li>
+                          <li>Tools: Git, VS Code, Figma</li>
+                        </ul>
+                        
+                        <h2 className="font-bold mt-4 text-blue-400">Hobbies & Interests</h2>
+                        <p>
+                          When I'm not coding, I enjoy listening to music (check my favorites below!), playing games, 
+                          and keeping up with the latest tech trends. I'm particularly interested in how AI is shaping 
+                          our future and love exploring new technologies.
+                        </p>
+
+                        <h2 className="font-bold mt-4 text-blue-400">Experience</h2>
+                        <ul className="list-disc pl-5 space-y-2">
+                          <li>Intern at Indi Tekno Kreasi International - FULLSTACK DEV</li>
+                        </ul>
+                      </div>
+                    </Card>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
                 <div>
-                  <Card shiny className="w-[208px] h-[200px] p-4 flex flex-col gap-4 rounded-lg">
+                  {!showDetailedAbout && (
+                    <Card shiny className="w-[208px] h-[200px] p-4 flex flex-col gap-4 rounded-lg">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl border border-gray-700">
                         <BsTools className="w-5 h-5 opacity-70 text-gray-300" />
@@ -182,6 +249,8 @@ export default function Home() {
                       </div>
                     </div>
                   </Card>
+                  )}
+
                 </div>
               </div>
 
