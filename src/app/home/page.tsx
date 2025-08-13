@@ -112,29 +112,47 @@ export default function Home() {
         <h1 className="font-mono text-3xl font-bold mb-4">ABOUT ME</h1>
 
         <div className="flex gap-2">
-          <Card className="w-62 h-[408px] overflow-hidden">
+          <Card className="w-62 h-[408px] overflow-hidden rounded-md">
             <div className="relative w-full h-full">
               <Image
                 src="/assets/bintangImg.jpeg"
                 alt="bintang img"
                 fill
                 sizes="100vw"
-                className="rounded-md object-cover"
+                className="object-cover"
               />
             </div>
           </Card>
 
           <div className="flex flex-col gap-2 font-mono">
             <div className="flex gap-2">
-              <Card className="w-96 h-[200px]">
-                <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl">
-                  <FaUserNinja className="w-10 h-6 opacity-50 " />
+              <Card shiny className="w-96 h-[200px]">
+                <div className="flex items-center gap-6">
+                  <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl">
+                    <FaUserNinja className="w-10 h-6 opacity-50 " />
+                  </div>
+                  <h1>About Me</h1>
                 </div>
+
+                <div className=" w-full">
+                  <h1 className="text-sm mt-2">Hello.. Im Bintang Yudha Putra Purnomo, im from Jakarta and currently
+                    studying at SMKN 46 Jakarta. Im a student with passionate ...
+                  </h1>
+                </div>
+
+                <div className="flex justify-between items-center mt-4">
+                  <div></div>
+                  <a href="#" className="flex items-center gap-1 hover:text-blue-400 transition-colors">
+                    More Details
+                    <IoIosArrowForward className="text-sm" />
+                  </a>
+                </div>
+
               </Card>
               <div>
 
                 <div>
-                  <Card className="w-[208px] h-[200px] p-4 flex flex-col gap-4 rounded-lg">
+                  <Card shiny className="w-[208px] h-[200px] p-4 flex flex-col gap-4 rounded-lg">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl border border-gray-700">
                         <BsTools className="w-5 h-5 opacity-70 text-gray-300" />
@@ -142,7 +160,7 @@ export default function Home() {
                       <h3 className="text-sm font-medium text-gray-200">STACK</h3>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-3 gap-2 mt-4">
                       <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl hover:bg-blue-500/10 transition-colors border border-gray-700">
                         <FaReact className="w-6 h-6 text-blue-400" />
                       </div>
@@ -170,9 +188,9 @@ export default function Home() {
             </div>
 
             <div className="flex gap-2">
-              <Card className="w-[240px] h-[200px]">
+              <Card shiny className="w-[240px] h-[200px]">
                 <div className="flex justify-end items-center gap-5 ">
-                    <h1>Highlight</h1>
+                  <h1>Highlight</h1>
                   <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl">
                     <AiOutlineProject className="w-10 h-6 opacity-50" />
                   </div>
@@ -189,12 +207,12 @@ export default function Home() {
                   </div>
                 </div>
               </Card>
-              
-              <Card className="w-[350px] h-[200px] overflow-y-auto thin-scrollbar">
+
+              <Card shiny className="w-[350px] h-[200px] overflow-y-auto thin-scrollbar">
                 <div className="flex gap-2 items-center">
-                <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl">
-                  <BiMusic className="w-10 h-6 opacity-50"/>
-                </div>
+                  <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl">
+                    <BiMusic className="w-10 h-6 opacity-50" />
+                  </div>
                   <h1>My Favorite Music</h1>
                 </div>
                 <div className="flex items-center justify-center flex-col gap-2 mt-5">
@@ -208,19 +226,19 @@ export default function Home() {
                     className="rounded-md"
                     loading="lazy"></iframe>
 
-                    <iframe data-testid="embed-iframe" 
-                    className="rounded-md" 
-                    src="https://open.spotify.com/embed/track/5wTVNpi5WDByxBgKgUE6MU?utm_source=generator" 
-                    width="100%" height="80" 
-                    frameBorder="0" 
+                  <iframe data-testid="embed-iframe"
+                    className="rounded-md"
+                    src="https://open.spotify.com/embed/track/5wTVNpi5WDByxBgKgUE6MU?utm_source=generator"
+                    width="100%" height="80"
+                    frameBorder="0"
                     allowtransparency="true"
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
 
-                    <a href='' className="flex justify-end items-center gap-2 mt-5">
-                      <h1>More Details</h1>
-                      <IoIosArrowForward/>
-                    </a>
+                <a href='' className="flex justify-end items-center gap-2 mt-5">
+                  <h1>More Details</h1>
+                  <IoIosArrowForward />
+                </a>
               </Card>
             </div>
           </div>
