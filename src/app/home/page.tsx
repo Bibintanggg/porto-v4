@@ -314,6 +314,12 @@ export default function Home() {
         </div>
       </div>
 
+      <div>
+        <div className="flex justify-center font-mono pt-10">
+          <h1 className="font-bold text-3xl">Projects</h1>
+        </div>
+      </div>
+
 
     </div>
   );
