@@ -12,6 +12,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Card from "../components/Card";
 import { useState } from "react";
+import CardProject from "../components/CardProject";
+import { project } from "@/data/data-project";
 
 const SocialIcon = ({
   icon,
@@ -72,6 +74,8 @@ const SocialIcon = ({
 
 export default function Home() {
   const [showDetailedAbout, setShowDetailedAbout] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [toggleButton, setToggleButton] = useState(false)
 
   return (
     <div className="relative h-full w-full min-h-[200vh] overflow-x-hidden">
@@ -147,7 +151,7 @@ export default function Home() {
 
                   <div className="flex justify-between items-center mt-4">
                     <div></div>
-                    <button 
+                    <button
                       onClick={() => setShowDetailedAbout(true)}
                       className="flex items-center gap-1 hover:text-blue-400 transition-colors"
                     >
@@ -158,97 +162,97 @@ export default function Home() {
                 </Card>
               )}
               <div>
-              <AnimatePresence>
-                {showDetailedAbout && (
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Card shiny className="w-[600px] h-[400px] p-6 relative">
-                      <button 
-                        onClick={() => setShowDetailedAbout(false)}
-                        className="absolute top-4 right-4 p-1 hover:text-blue-400 transition-colors"
-                      >
-                        <IoIosClose size={24} />
-                      </button>
-                      
-                      <div className="flex items-center gap-6 mb-6">
-                        <div className="w-14 h-14 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl">
-                          <FaUserNinja className="w-10 h-6 opacity-50" />
+                <AnimatePresence>
+                  {showDetailedAbout && (
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Card shiny className="w-[600px] h-[400px] p-6 relative">
+                        <button
+                          onClick={() => setShowDetailedAbout(false)}
+                          className="absolute top-4 right-4 p-1 hover:text-blue-400 transition-colors"
+                        >
+                          <IoIosClose size={24} />
+                        </button>
+
+                        <div className="flex items-center gap-6 mb-6">
+                          <div className="w-14 h-14 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl">
+                            <FaUserNinja className="w-10 h-6 opacity-50" />
+                          </div>
+                          <h1 className="text-xl font-bold">About Me</h1>
                         </div>
-                        <h1 className="text-xl font-bold">About Me</h1>
-                      </div>
 
-                      <div className="text-sm space-y-4 overflow-y-auto h-[280px] pr-4 thin-scrollbar">
-                        <p>
-                          Hello! I'm Bintang Yudha Putra Purnomo, a passionate technology enthusiast from Jakarta, Indonesia. 
-                          Currently, I'm pursuing my education at SMKN 46 Jakarta, where I'm developing my skills in software development.
-                        </p>
-                        
-                        <p>
-                          My journey in technology began when I was first introduced to programming in school. Since then, 
-                          I've developed a strong passion for web development.
-                        </p>
-                        
-                        <h2 className="font-bold mt-4 text-blue-400">Technical Skills</h2>
-                        <ul className="list-disc pl-5 space-y-2">
-                          <li>Frontend Development: React, TypeScript, Tailwind CSS, NextJS</li>
-                          <li>Backend Development: Laravel</li>
-                          <li>AI/ML: Basic understanding of machine learning concepts</li>
-                          <li>Tools: Git, VS Code, Figma</li>
-                        </ul>
-                        
-                        <h2 className="font-bold mt-4 text-blue-400">Hobbies & Interests</h2>
-                        <p>
-                          When I'm not coding, I enjoy listening to music (check my favorites below!), playing games, 
-                          and keeping up with the latest tech trends. I'm particularly interested in how AI is shaping 
-                          our future and love exploring new technologies.
-                        </p>
+                        <div className="text-sm space-y-4 overflow-y-auto h-[280px] pr-4 thin-scrollbar">
+                          <p>
+                            Hello! I'm Bintang Yudha Putra Purnomo, a passionate technology enthusiast from Jakarta, Indonesia.
+                            Currently, I'm pursuing my education at SMKN 46 Jakarta, where I'm developing my skills in software development.
+                          </p>
 
-                        <h2 className="font-bold mt-4 text-blue-400">Experience</h2>
-                        <ul className="list-disc pl-5 space-y-2">
-                          <li>Intern at Indi Tekno Kreasi International - FULLSTACK DEV</li>
-                        </ul>
-                      </div>
-                    </Card>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                          <p>
+                            My journey in technology began when I was first introduced to programming in school. Since then,
+                            I've developed a strong passion for web development.
+                          </p>
+
+                          <h2 className="font-bold mt-4 text-blue-400">Technical Skills</h2>
+                          <ul className="list-disc pl-5 space-y-2">
+                            <li>Frontend Development: React, TypeScript, Tailwind CSS, NextJS</li>
+                            <li>Backend Development: Laravel</li>
+                            <li>AI/ML: Basic understanding of machine learning concepts</li>
+                            <li>Tools: Git, VS Code, Figma</li>
+                          </ul>
+
+                          <h2 className="font-bold mt-4 text-blue-400">Hobbies & Interests</h2>
+                          <p>
+                            When I'm not coding, I enjoy listening to music (check my favorites below!), playing games,
+                            and keeping up with the latest tech trends. I'm particularly interested in how AI is shaping
+                            our future and love exploring new technologies.
+                          </p>
+
+                          <h2 className="font-bold mt-4 text-blue-400">Experience</h2>
+                          <ul className="list-disc pl-5 space-y-2">
+                            <li>Intern at Indi Tekno Kreasi International - FULLSTACK DEV</li>
+                          </ul>
+                        </div>
+                      </Card>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
                 <div>
                   {!showDetailedAbout && (
                     <Card shiny className="w-[208px] h-[200px] p-4 flex flex-col gap-4 rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl border border-gray-700">
-                        <BsTools className="w-5 h-5 opacity-70 text-gray-300" />
-                      </div>
-                      <h3 className="text-sm font-medium text-gray-200">STACK</h3>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-2 mt-4">
-                      <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl hover:bg-blue-500/10 transition-colors border border-gray-700">
-                        <FaReact className="w-6 h-6 text-blue-400" />
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl border border-gray-700">
+                          <BsTools className="w-5 h-5 opacity-70 text-gray-300" />
+                        </div>
+                        <h3 className="text-sm font-medium text-gray-200">STACK</h3>
                       </div>
 
-                      <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl hover:bg-blue-600/10 transition-colors border border-gray-700">
-                        <BiLogoTypescript className="w-6 h-6 text-blue-600" />
-                      </div>
+                      <div className="grid grid-cols-3 gap-2 mt-4">
+                        <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl hover:bg-blue-500/10 transition-colors border border-gray-700">
+                          <FaReact className="w-6 h-6 text-blue-400" />
+                        </div>
 
-                      <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl hover:bg-cyan-500/10 transition-colors border border-gray-700">
-                        <SiTailwindcss className="w-6 h-6 text-cyan-400" />
-                      </div>
+                        <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl hover:bg-blue-600/10 transition-colors border border-gray-700">
+                          <BiLogoTypescript className="w-6 h-6 text-blue-600" />
+                        </div>
 
-                      <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl hover:bg-cyan-500/10 transition-colors border border-gray-700">
-                        <FaCss3 className="w-6 h-6 text-cyan-400" />
-                      </div>
+                        <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl hover:bg-cyan-500/10 transition-colors border border-gray-700">
+                          <SiTailwindcss className="w-6 h-6 text-cyan-400" />
+                        </div>
 
-                      <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl hover:bg-red-500/10 transition-colors border border-gray-700">
-                        <FaLaravel className="w-6 h-6 text-red-500" />
+                        <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl hover:bg-cyan-500/10 transition-colors border border-gray-700">
+                          <FaCss3 className="w-6 h-6 text-cyan-400" />
+                        </div>
+
+                        <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl hover:bg-red-500/10 transition-colors border border-gray-700">
+                          <FaLaravel className="w-6 h-6 text-red-500" />
+                        </div>
                       </div>
-                    </div>
-                  </Card>
+                    </Card>
                   )}
 
                 </div>
@@ -316,10 +320,23 @@ export default function Home() {
 
       <div>
         <div className="flex justify-center font-mono pt-10">
-          <h1 className="font-bold text-3xl">Projects</h1>
+          <h1 className="font-bold text-3xl">Showcase</h1>
         </div>
-      </div>
 
+        <div className="flex gap-5 items-center justify-center text-xl">
+          <h1>Projects</h1>
+          <h1>Experience</h1>
+        </div>
+
+        <div className=" flex items-center justify-center mt-10">
+          <div className="grid grid-cols-2 max-w-4xl gap-10">
+            {project.map((data) => (
+              <CardProject key={data.id} project={data} />
+            ))}
+          </div>
+        </div>
+
+      </div>
 
     </div>
   );
