@@ -10,13 +10,13 @@ export default function CardProject({ project }: CardProjectProps) {
   return (
     <div className="max-w-xl rounded-lg overflow-hidden shadow-lg bg-white/5 
     backdrop-blur-md border mx-auto flex flex-col justify-center items-center
-    border-white/10 hover:shadow-xl transition-all duration-300">
-      <div className="relative h-48 w-[380px] ">
+    border-white/10 hover:shadow-xl transition-all duration-300 group">
+      <div className="relative h-48 w-[380px] overflow-hidden rounded-md ">
         <Image
-          src={project.image}
+          src={project.image}size-72
           alt={project.title}
           fill
-          className="object-cover rounded-md mt-4"
+          className="object-cover rounded-md mt-4 transition-transform duration-500 ease-in-out group-hover:scale-110"
         />
       </div>
 
@@ -38,7 +38,6 @@ export default function CardProject({ project }: CardProjectProps) {
             <FiShare  
             className="transition-all duration-200 group-hover:rotate-90 group-hover:ml-3" />
           </a>
-
 
           <a
             href={project.link}

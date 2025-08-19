@@ -5,7 +5,7 @@ import { AiOutlineProject } from "react-icons/ai";
 import { BiLogoTypescript, BiMusic } from "react-icons/bi";
 import { SiTailwindcss } from "react-icons/si";
 import Navbar from "../components/Navbar";
-import { IoIosArrowForward, IoIosClose } from "react-icons/io";
+import { IoIosArrowForward, IoIosClose, IoIosArrowUp } from "react-icons/io";
 import { BsTools } from "react-icons/bs";
 import Typewriter from "../components/Typewriter";
 import { AnimatePresence, motion } from "framer-motion";
@@ -74,8 +74,7 @@ const SocialIcon = ({
 
 export default function Home() {
   const [showDetailedAbout, setShowDetailedAbout] = useState(false);
-  const [isOpen, setIsOpen] = useState(false)
-  const [toggleButton, setToggleButton] = useState(false)
+  const [visibleProjects, setVisibleProjects] = useState(2); 
 
   return (
     <div className="relative h-full w-full min-h-[200vh] overflow-x-hidden">
@@ -254,10 +253,8 @@ export default function Home() {
                       </div>
                     </Card>
                   )}
-
                 </div>
               </div>
-
             </div>
 
             <div className="flex gap-2">
@@ -318,26 +315,50 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
+      <div className="pb-20">
         <div className="flex justify-center font-mono pt-10">
           <h1 className="font-bold text-3xl">Showcase</h1>
         </div>
 
-        <div className="flex gap-5 items-center justify-center text-xl">
-          <h1>Projects</h1>
-          <h1>Experience</h1>
+        <div className="flex gap-5 items-center justify-center text-xl mt-4">
+          <h1 className="text-blue-400">Projects</h1>
+          <h1 className="opacity-50 hover:opacity-100 transition-opacity">Experience</h1>
         </div>
 
-        <div className=" flex items-center justify-center mt-10">
-          <div className="grid grid-cols-2 max-w-4xl gap-10">
-            {project.map((data) => (
+        <div className="flex items-center justify-center mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl gap-10">
+            {project.slice(0, visibleProjects).map((data) => (
               <CardProject key={data.id} project={data} />
             ))}
           </div>
         </div>
 
+        {project.length > 2 && (
+          <div className="flex justify-center mt-10">
+            {visibleProjects < project.length ? (
+              <motion.button
+                onClick={() => setVisibleProjects(project.length)}
+                className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-md transition-colors flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Show More 
+                <IoIosArrowForward />
+              </motion.button>
+            ) : (
+              <motion.button
+                onClick={() => setVisibleProjects(2)}
+                className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-md transition-colors flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Show Less
+                <IoIosArrowUp />
+              </motion.button>
+            )}
+          </div>
+        )}
       </div>
-
     </div>
   );
 }
