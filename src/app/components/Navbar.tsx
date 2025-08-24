@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollTriggered, setScrollTriggered] = useState(false);
-
+  
   useEffect(() => {
     let scrollTimeout: any;
 

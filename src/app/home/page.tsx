@@ -1,6 +1,17 @@
 "use client";
 
-import { FaCss3, FaGithub, FaInstagram, FaLaravel, FaLinkedin, FaReact, FaTiktok, FaUserNinja } from "react-icons/fa";
+import { 
+  FaCss3, 
+  FaGithub, 
+  FaInstagram, 
+  FaLaravel, 
+  FaLinkedin, 
+  FaReact, 
+  FaTiktok, 
+  FaUser, 
+  FaUserNinja ,
+  FaUserCircle
+} from "react-icons/fa";
 import { AiOutlineProject } from "react-icons/ai";
 import { BiLogoTypescript, BiMusic } from "react-icons/bi";
 import { SiTailwindcss } from "react-icons/si";
@@ -14,6 +25,7 @@ import Card from "../components/Card";
 import { useState } from "react";
 import CardProject from "../components/CardProject";
 import { project } from "@/data/data-project";
+import CardContact from "../components/CardContact";
 
 const SocialIcon = ({
   icon,
@@ -387,8 +399,53 @@ export default function Home() {
           </div>
         )}
 
+      <div className="flex justify-center items-center flex-col mt-20">
+        <div className="flex justify-center items-center ">
+          <h1 className="font-mono text-3xl">Contact</h1>
+        </div>
 
+        <div className="mt-10">
+        <CardContact 
+        link="#"
+        icon={<FaInstagram size={40}/>}
+        label="Instagram"
+        subLabel="@bintang.ydha_"
+        subIcon={<FaUser/>}
+        >
+          <div className="mt-5">
+            <Card shiny>
+              <div className="relative flex items-center gap-10">
+              <FaUserCircle size={90}/>
+                <div>
+
+                  <div className="flex gap-2 flex-col font-sans">
+                  <div className="font-sans text-xl">
+                    <h1>bintang.ydha_</h1>
+                  </div>
+
+                  <div className="flex items-center gap-4 text-sm">
+                    <ul className="flex gap-5">
+                      <li>1 Posted</li>
+                      <li>440 Followers</li>
+                      <li>604 Following</li>
+                    </ul>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <p>beentang</p>
+                    <span className="text-white/50">he/him</span>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+        </CardContact>
+        </div>
       </div>
+      </div>
+
     </div>
   );
 }
