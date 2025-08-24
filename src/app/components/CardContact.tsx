@@ -15,7 +15,7 @@ interface ContactProps {
 }
 export default function CardContact({ label, icon, link, classname, subIcon, children, subLabel}: ContactProps) {
     return (
-        <a href={link} className={classname}>
+        <a href={link} className={classname} target="_blank">
             <Card>
                 <div className="relative flex items-center ">
                     <div className="flex items-center gap-4">

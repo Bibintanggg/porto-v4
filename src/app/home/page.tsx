@@ -1,17 +1,19 @@
 "use client";
 
-import { 
-  FaCss3, 
-  FaGithub, 
-  FaInstagram, 
-  FaLaravel, 
-  FaLinkedin, 
-  FaReact, 
-  FaTiktok, 
-  FaUser, 
-  FaUserNinja ,
-  FaUserCircle
+import {
+  FaCss3,
+  FaGithub,
+  FaInstagram,
+  FaLaravel,
+  FaLinkedin,
+  FaReact,
+  FaTiktok,
+  FaUser,
+  FaUserNinja,
+  FaUserCircle,
+  FaUserFriends
 } from "react-icons/fa";
+import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineProject } from "react-icons/ai";
 import { BiLogoTypescript, BiMusic } from "react-icons/bi";
 import { SiTailwindcss } from "react-icons/si";
@@ -86,7 +88,7 @@ const SocialIcon = ({
 
 export default function Home() {
   const [showDetailedAbout, setShowDetailedAbout] = useState(false);
-  const [visibleProjects, setVisibleProjects] = useState(2); 
+  const [visibleProjects, setVisibleProjects] = useState(2);
   const [toggleButton, setToggleButton] = useState('projects');
 
   // const [toggleProjects, setToggleProjects] = useState('projects');
@@ -342,15 +344,15 @@ export default function Home() {
         </div>
 
         <div className="flex gap-5 items-center justify-center text-xl mt-4 font-sans">
-          <button 
-          onClick={() => toggleView('projects')}
-          className="bg-white/10 cursor-pointer backdrop-blur-2xl 
+          <button
+            onClick={() => toggleView('projects')}
+            className="bg-white/10 cursor-pointer backdrop-blur-2xl 
           rounded-xl w-36 h-10 flex items-center justify-center hover:bg-white/30 transition-all ease-in-out duration-75">
             Projects
           </button>
-          <button 
-          onClick={() => toggleView('experience')}
-          className="bg-white/10 cursor-pointer backdrop-blur-2xl 
+          <button
+            onClick={() => toggleView('experience')}
+            className="bg-white/10 cursor-pointer backdrop-blur-2xl 
           rounded-xl w-36 h-10 flex items-center justify-center hover:bg-white/30 transition-all ease-in-out duration-75">
             Experience
           </button>
@@ -366,7 +368,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            
+
             {project.length > 2 && (
               <div className="flex justify-center mt-10">
                 {visibleProjects < project.length ? (
@@ -376,7 +378,7 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Show More 
+                    Show More
                     <IoIosArrowForward />
                   </motion.button>
                 ) : (
@@ -395,55 +397,169 @@ export default function Home() {
           </>
         ) : (
           <div className="flex items-center justify-center mt-10">
-              <span className="text-gray-400">Experience content coming soon.</span>
+            <span className="text-gray-400">Experience content coming soon.</span>
           </div>
         )}
 
-      <div className="flex justify-center items-center flex-col mt-20">
-        <div className="flex justify-center items-center ">
-          <h1 className="font-mono text-3xl">Contact</h1>
-        </div>
-
-        <div className="mt-10">
-        <CardContact 
-        link="#"
-        icon={<FaInstagram size={40}/>}
-        label="Instagram"
-        subLabel="@bintang.ydha_"
-        subIcon={<FaUser/>}
-        >
-          <div className="mt-5">
-            <Card shiny>
-              <div className="relative flex items-center gap-10">
-              <FaUserCircle size={90}/>
-                <div>
-
-                  <div className="flex gap-2 flex-col font-sans">
-                  <div className="font-sans text-xl">
-                    <h1>bintang.ydha_</h1>
-                  </div>
-
-                  <div className="flex items-center gap-4 text-sm">
-                    <ul className="flex gap-5">
-                      <li>1 Posted</li>
-                      <li>440 Followers</li>
-                      <li>604 Following</li>
-                    </ul>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <p>beentang</p>
-                    <span className="text-white/50">he/him</span>
-                  </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
+        <div className="flex justify-center items-center flex-col mt-20">
+          <div className="flex justify-center items-center ">
+            <h1 className="font-mono text-3xl">Contact</h1>
           </div>
 
-        </CardContact>
+          <div className="mt-10 flex gap-5">
+            <div className='flex flex-col gap-5'>
+
+            <CardContact
+              link="https://www.instagram.com/bintang.ydha_/"
+              icon={<FaInstagram size={40} />}
+              label="Instagram"
+              subLabel="@bintang.ydha_"
+              subIcon={<FaUser />}
+            >
+              <div className="mt-5">
+                <Card shiny>
+                  <div className="relative flex items-center gap-10">
+                    <FaUserCircle size={90} />
+                    <div>
+
+                      <div className="flex gap-2 flex-col font-sans">
+                        <div className="font-sans text-xl">
+                          <h1>bintang.ydha_</h1>
+                        </div>
+
+                        <div className="flex items-center gap-4 text-sm">
+                          <ul className="flex gap-5">
+                            <li>1 Posted</li>
+                            <li>440 Followers</li>
+                            <li>604 Following</li>
+                          </ul>
+                        </div>
+
+                        <div className="flex gap-3">
+                          <p>beentang</p>
+                          <span className="text-white/50">he/him</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+
+            </CardContact>
+
+            <CardContact
+              link="https://www.tiktok.com/@bintangyudha_"
+              icon={<FaTiktok size={40} />}
+              label="Tiktok"
+              subLabel="@bintangyudha_"
+              subIcon={<FaUser />}
+            >
+              <div className="mt-5">
+                <Card shiny>
+                  <div className="relative flex items-center gap-5 justify-center">
+                    <img src="/assets/bin.jpeg" alt="bin" className="rounded-full w-30 h-30" />
+                    <div>
+
+                      <div className="flex gap-2 flex-col font-sans">
+                        <div className="font-sans text-xl">
+                          <h1 className='font-semibold'>Kanaaell</h1>
+                          <p className='text-sm font-lg text-white/40'>@bintangyudha_</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-center">
+                    <div className="flex items-center gap-4 text-sm mt-5">
+                          <div className="font-sans text-lg font-semibold">
+                            <h1>310</h1>
+                            <p className="text-sm text-white/40 ">Following</p>
+                          </div>
+                          <hr className="w-0.5 h-9 bg-white/30 rounded-full"/>
+                          <div className="font-sans text-lg font-semibold">
+                            <h1>839</h1>
+                            <p className="text-sm text-white/40 ">Followers</p>
+                          </div>
+                          <hr className="w-0.5 h-9 bg-white/30 rounded-full"/>
+
+                          <div className="font-sans text-lg font-semibold">
+                            <h1>42.1K</h1>
+                            <p className="text-sm text-white/40 ">Likes</p>
+                          </div>
+                        </div>
+                  </div>
+                </Card>
+              </div>
+
+            </CardContact>
+            </div>
+
+            <CardContact
+              link="https://github.com/Bibintanggg"
+              icon={<FaGithub size={40} />}
+              label="Github"
+              subLabel="Bibintanggg"
+              subIcon={<FaUser />}
+            >
+
+              <div className="mt-5">
+                <Card shiny>
+                  <div className="flex flex-col ">
+                    <img src="/assets/gitimg.jpg" alt="bin" className="rounded-full w-50 h-50" />
+                  </div>
+
+                  <div className="flex flex-col text-xl font-sans">
+                    <div className="mt-5">
+                      <div className="flex flex-col">
+                        <h1 className="font-medium">Bintang Yudha</h1>
+
+                        <div className="flex gap-2 items-center">
+                          <p className="font-thin">Bibintanggg</p>
+                          <hr className="w-0.5 h-0.5 rounded-full bg-white" />
+                          <span className='font-thin'>he/him</span>
+                        </div>
+
+                        <div className="text-base mt-3 text-medium">
+                          <h1>Mau jadi fullstack katanya</h1>
+                          <div className="text-center">
+                            <button className="mt-5 w-full h-8 rounded-md backdrop-blur-2xl bg-white/10 border 
+                            border-white/10">
+                              Follow guys
+                            </button>
+                          </div>
+                        </div>
+
+                        <div className="text-sm flex items-center mt-5 gap-2">
+                          <FaUserFriends opacity={5} />
+                          <p>
+                            7
+                            <span className="text-white/70"> Followers</span>
+                          </p>
+                          <br className="w-0.5 h-0.5 bg-white" />
+                          <p>
+                            6
+                            <span className="text-white/70"> Following</span>
+                          </p>
+                        </div>
+
+                        <div className="text-sm flex items-center mt-3 gap-2">
+                          <CiLocationOn opacity={5} />
+                          <p>
+                            Jakarta Timur
+                            <span className="text-white/70"> - Indonesia</span>
+                          </p>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+
+            </CardContact>
+
+          </div>
         </div>
-      </div>
       </div>
 
     </div>
