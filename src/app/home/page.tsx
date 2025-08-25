@@ -11,12 +11,13 @@ import {
   FaUser,
   FaUserNinja,
   FaUserCircle,
-  FaUserFriends
+  FaUserFriends,
+  FaFolder
 } from "react-icons/fa";
 import GitHubCalendar from 'react-github-calendar';
 import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineProject } from "react-icons/ai";
-import { BiLogoTypescript, BiMusic } from "react-icons/bi";
+import { BiArchive, BiLogoTypescript, BiMusic } from "react-icons/bi";
 import { SiTailwindcss } from "react-icons/si";
 import Navbar from "../components/Navbar";
 import { IoIosArrowForward, IoIosClose, IoIosArrowUp } from "react-icons/io";
@@ -301,34 +302,37 @@ export default function Home() {
               <Card shiny className="w-[350px] h-[200px] overflow-y-auto thin-scrollbar">
                 <div className="flex gap-2 items-center">
                   <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl">
-                    <BiMusic className="w-10 h-6 opacity-50" />
+                    <BiArchive className="w-10 h-6 opacity-50" />
                   </div>
-                  <h1>My Favorite Music</h1>
+                  <h1>Archive</h1>
                 </div>
-                <div className="flex items-center justify-center flex-col gap-2 mt-5">
-                  <iframe data-testid="embed-iframe"
-                    src="https://open.spotify.com/embed/track/1g7pFO1WtclKCuIQiS8sNM?utm_source=generator"
-                    width="100%"
-                    height="80"
-                    frameBorder="0"
-                    allowtransparency="true"
-                    allow="encrypted-media"
-                    className="rounded-md"
-                    loading="lazy"></iframe>
+                <div className="flex items-center gap-5 mt-5">
+                  <a href="#" className="flex flex-col items-center cursor-pointer">
+                  <FaFolder size={40} className="text-white/40"/>
+                  <div className="flex flex-col items-center">
+                  <p className="text-sm">fav-
+                    <span>music</span>
+                  </p>
+                  </div>
+                  </a>
 
-                  <iframe data-testid="embed-iframe"
-                    className="rounded-md"
-                    src="https://open.spotify.com/embed/track/5wTVNpi5WDByxBgKgUE6MU?utm_source=generator"
-                    width="100%" height="80"
-                    frameBorder="0"
-                    allowtransparency="true"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                  <a href="#" className="flex flex-col items-center cursor-pointer">
+                  <FaFolder size={40} className="text-white/40"/>
+                  <div className="flex flex-col items-center">
+                  <p className="text-sm">gallery
+                  </p>
+                  </div>
+                  </a>
+
+                  <a href="#" className="flex flex-col items-center cursor-pointer">
+                  <FaFolder size={40} className="text-white/40"/>
+                  <div className="flex flex-col items-center">
+                  <p className="text-sm">bintang
+                  </p>
+                  </div>
+                  </a>
+
                 </div>
-
-                <a href='' className="flex justify-end items-center gap-2 mt-5">
-                  <h1>More Details</h1>
-                  <IoIosArrowForward />
-                </a>
               </Card>
 
             </div>
@@ -363,21 +367,17 @@ export default function Home() {
         {toggleButton === 'projects' ? (
           <>
 
-           <div className="flex items-center justify-center mt-10">
-  <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl gap-10">
-    {project.slice(0, visibleProjects).map((data) => (
-      <CardProject key={data.id} project={data}>
-        <AvatarIcon
-          items={[
-            { image: "https://i.pravatar.cc/40?img=1" },
-            { image: "https://i.pravatar.cc/40?img=2" },
-            { image: "https://i.pravatar.cc/40?img=3" },
-          ]}
-        />
-      </CardProject>
-    ))}
-  </div>
-</div>
+            <div className="flex items-center justify-center mt-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl gap-10">
+                {project.slice(0, visibleProjects).map((data) => (
+                  <CardProject key={data.id} project={data}>
+                    <div>
+
+                    </div>
+                  </CardProject>
+                ))}
+              </div>
+            </div>
 
 
             {project.length > 2 && (
@@ -420,89 +420,89 @@ export default function Home() {
           <div className="mt-10 flex gap-5">
             <div className='flex flex-col gap-5'>
 
-            <CardContact
-              link="https://www.instagram.com/bintang.ydha_/"
-              icon={<FaInstagram size={40} />}
-              label="Instagram"
-              subLabel="@bintang.ydha_"
-              subIcon={<FaUser />}
-            >
-              <div className="mt-5">
-                <Card shiny>
-                  <div className="relative flex items-center gap-10">
-                    <FaUserCircle size={90} />
-                    <div>
+              <CardContact
+                link="https://www.instagram.com/bintang.ydha_/"
+                icon={<FaInstagram size={40} />}
+                label="Instagram"
+                subLabel="@bintang.ydha_"
+                subIcon={<FaUser />}
+              >
+                <div className="mt-5">
+                  <Card shiny>
+                    <div className="relative flex items-center gap-10">
+                      <FaUserCircle size={90} />
+                      <div>
 
-                      <div className="flex gap-2 flex-col font-sans">
-                        <div className="font-sans text-xl">
-                          <h1>bintang.ydha_</h1>
-                        </div>
+                        <div className="flex gap-2 flex-col font-sans">
+                          <div className="font-sans text-xl">
+                            <h1>bintang.ydha_</h1>
+                          </div>
 
-                        <div className="flex items-center gap-4 text-sm">
-                          <ul className="flex gap-5">
-                            <li>1 Posted</li>
-                            <li>440 Followers</li>
-                            <li>604 Following</li>
-                          </ul>
-                        </div>
+                          <div className="flex items-center gap-4 text-sm">
+                            <ul className="flex gap-5">
+                              <li>1 Posted</li>
+                              <li>440 Followers</li>
+                              <li>604 Following</li>
+                            </ul>
+                          </div>
 
-                        <div className="flex gap-3">
-                          <p>beentang</p>
-                          <span className="text-white/50">he/him</span>
+                          <div className="flex gap-3">
+                            <p>beentang</p>
+                            <span className="text-white/50">he/him</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Card>
-              </div>
+                  </Card>
+                </div>
 
-            </CardContact>
+              </CardContact>
 
-            <CardContact
-              link="https://www.tiktok.com/@bintangyudha_"
-              icon={<FaTiktok size={40} />}
-              label="Tiktok"
-              subLabel="@bintangyudha_"
-              subIcon={<FaUser />}
-            >
-              <div className="mt-5">
-                <Card shiny>
-                  <div className="relative flex items-center gap-5 justify-center">
-                    <img src="/assets/bin.jpeg" alt="bin" className="rounded-full w-30 h-30" />
-                    <div>
+              <CardContact
+                link="https://www.tiktok.com/@bintangyudha_"
+                icon={<FaTiktok size={40} />}
+                label="Tiktok"
+                subLabel="@bintangyudha_"
+                subIcon={<FaUser />}
+              >
+                <div className="mt-5">
+                  <Card shiny>
+                    <div className="relative flex items-center gap-5 justify-center">
+                      <img src="/assets/bin.jpeg" alt="bin" className="rounded-full w-30 h-30" />
+                      <div>
 
-                      <div className="flex gap-2 flex-col font-sans">
-                        <div className="font-sans text-xl">
-                          <h1 className='font-semibold'>Kanaaell</h1>
-                          <p className='text-sm font-lg text-white/40'>@bintangyudha_</p>
+                        <div className="flex gap-2 flex-col font-sans">
+                          <div className="font-sans text-xl">
+                            <h1 className='font-semibold'>Kanaaell</h1>
+                            <p className='text-sm font-lg text-white/40'>@bintangyudha_</p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="flex justify-center">
-                    <div className="flex items-center gap-4 text-sm mt-5">
-                          <div className="font-sans text-lg font-semibold">
-                            <h1>310</h1>
-                            <p className="text-sm text-white/40 ">Following</p>
-                          </div>
-                          <hr className="w-0.5 h-9 bg-white/30 rounded-full"/>
-                          <div className="font-sans text-lg font-semibold">
-                            <h1>839</h1>
-                            <p className="text-sm text-white/40 ">Followers</p>
-                          </div>
-                          <hr className="w-0.5 h-9 bg-white/30 rounded-full"/>
-
-                          <div className="font-sans text-lg font-semibold">
-                            <h1>42.1K</h1>
-                            <p className="text-sm text-white/40 ">Likes</p>
-                          </div>
+                    <div className="flex justify-center">
+                      <div className="flex items-center gap-4 text-sm mt-5">
+                        <div className="font-sans text-lg font-semibold">
+                          <h1>310</h1>
+                          <p className="text-sm text-white/40 ">Following</p>
                         </div>
-                  </div>
-                </Card>
-              </div>
+                        <hr className="w-0.5 h-9 bg-white/30 rounded-full" />
+                        <div className="font-sans text-lg font-semibold">
+                          <h1>839</h1>
+                          <p className="text-sm text-white/40 ">Followers</p>
+                        </div>
+                        <hr className="w-0.5 h-9 bg-white/30 rounded-full" />
 
-            </CardContact>
+                        <div className="font-sans text-lg font-semibold">
+                          <h1>42.1K</h1>
+                          <p className="text-sm text-white/40 ">Likes</p>
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+
+              </CardContact>
             </div>
 
             <CardContact
