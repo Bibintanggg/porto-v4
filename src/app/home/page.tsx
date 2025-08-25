@@ -13,6 +13,7 @@ import {
   FaUserCircle,
   FaUserFriends
 } from "react-icons/fa";
+import GitHubCalendar from 'react-github-calendar';
 import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineProject } from "react-icons/ai";
 import { BiLogoTypescript, BiMusic } from "react-icons/bi";
@@ -232,11 +233,6 @@ export default function Home() {
                             and keeping up with the latest tech trends. I'm particularly interested in how AI is shaping
                             our future and love exploring new technologies.
                           </p>
-
-                          <h2 className="font-bold mt-4 text-blue-400">Experience</h2>
-                          <ul className="list-disc pl-5 space-y-2">
-                            <li>Intern at Indi Tekno Kreasi International - FULLSTACK DEV</li>
-                          </ul>
                         </div>
                       </Card>
                     </motion.div>
@@ -333,9 +329,14 @@ export default function Home() {
                   <IoIosArrowForward />
                 </a>
               </Card>
+
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="flex items-center justify-center mt-10">
+        <GitHubCalendar username="Bibintanggg" />
       </div>
 
       <div className="pb-20">
