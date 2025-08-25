@@ -1,3 +1,5 @@
+import React from "react"
+
 export interface Project {
     id: number,
     title: string,
@@ -6,4 +8,5 @@ export interface Project {
     link: string,
     github: string,
     image: string
+    icon?: React.ReactNode
 }

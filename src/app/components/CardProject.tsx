@@ -1,12 +1,16 @@
 import { Project } from "@/types/project";
 import { FiShare, FiArrowUpRight } from "react-icons/fi";
 import Image from "next/image";
+import AvatarIcon from "./AvatarIcon";
+import { FaReact } from "react-icons/fa";
+import React from "react";
 
 interface CardProjectProps {
   project: Project;
+  children?: React.ReactNode
 }
 
-export default function CardProject({ project }: CardProjectProps) {
+export default function CardProject({ project, children }: CardProjectProps) {
   return (
     <div className="max-w-xl rounded-lg overflow-hidden shadow-lg bg-white/5 
     backdrop-blur-md border mx-auto flex flex-col justify-center items-center
@@ -39,19 +43,7 @@ export default function CardProject({ project }: CardProjectProps) {
             className="transition-all duration-200 group-hover:rotate-90 group-hover:ml-3" />
           </a>
 
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-sans group flex items-center gap-2 bg-white/10 backdrop-blur-3xl
-            text-white px-4 py-2 rounded-md text-sm font-medium transition-all"
-          >
-            <span className="group-hover:ml-1 transition-all duration-200">
-              View Details
-            </span>
-            <FiArrowUpRight size={18}
-            className="group-hover:rotate-[45deg] transition-all duration-200 group-hover:ml-2" />
-          </a>
+          {children}
         </div>
 
       </div>

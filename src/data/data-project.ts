@@ -1,4 +1,6 @@
 import { Project } from "@/types/project"
+import { FaLaravel } from "react-icons/fa"
+
 export const project: Project[] = [
     {
         id: 1,
@@ -7,7 +9,8 @@ export const project: Project[] = [
         image: "/assets/sleepwell.png",
         techStack: ['Laravel Inertia', 'Typescript', 'React', 'ShadCN', 'TailwindCSS', 'MYSQL', 'Laravel Sanctum', ],
         link: "#",
-        github: ''
+        github: '',
+        // icon: <Falara
     },
     {
         id: 2,

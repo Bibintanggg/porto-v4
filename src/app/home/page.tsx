@@ -29,6 +29,7 @@ import { useState } from "react";
 import CardProject from "../components/CardProject";
 import { project } from "@/data/data-project";
 import CardContact from "../components/CardContact";
+import AvatarIcon from "../components/AvatarIcon";
 
 const SocialIcon = ({
   icon,
@@ -362,13 +363,22 @@ export default function Home() {
         {toggleButton === 'projects' ? (
           <>
 
-            <div className="flex items-center justify-center mt-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl gap-10">
-                {project.slice(0, visibleProjects).map((data) => (
-                  <CardProject key={data.id} project={data} />
-                ))}
-              </div>
-            </div>
+           <div className="flex items-center justify-center mt-10">
+  <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl gap-10">
+    {project.slice(0, visibleProjects).map((data) => (
+      <CardProject key={data.id} project={data}>
+        <AvatarIcon
+          items={[
+            { image: "https://i.pravatar.cc/40?img=1" },
+            { image: "https://i.pravatar.cc/40?img=2" },
+            { image: "https://i.pravatar.cc/40?img=3" },
+          ]}
+        />
+      </CardProject>
+    ))}
+  </div>
+</div>
+
 
             {project.length > 2 && (
               <div className="flex justify-center mt-10">
