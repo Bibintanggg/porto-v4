@@ -17,7 +17,7 @@ export default function CardProject({ project, children }: CardProjectProps) {
     border-white/10 hover:shadow-xl transition-all duration-300 group">
       <div className="relative h-48 w-[380px] overflow-hidden rounded-md ">
         <Image
-          src={project.image}size-72
+          src={project.image} size-72
           alt={project.title}
           fill
           className="object-cover rounded-md mt-4 transition-transform duration-500 ease-in-out group-hover:scale-110"
@@ -39,11 +39,18 @@ export default function CardProject({ project, children }: CardProjectProps) {
             <span className="transition-all duration-200 group-hover:-ml-1">
               Demo
             </span>
-            <FiShare  
-            className="transition-all duration-200 group-hover:rotate-90 group-hover:ml-3" />
+            <FiShare
+              className="transition-all duration-200 group-hover:rotate-90 group-hover:ml-3" />
           </a>
 
-          {children}
+          {project.icon && (
+            <AvatarIcon
+              items={project.icon.map((icon, idx) => ({ 
+                id: idx, 
+                avatar: icon 
+              }))}
+            />
+          )}
         </div>
 
       </div>

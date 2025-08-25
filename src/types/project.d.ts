@@ -8,5 +8,5 @@ export interface Project {
     link: string,
     github: string,
     image: string
-    icon?: React.ReactNode
+    icon?: React.ReactNode[]
 }

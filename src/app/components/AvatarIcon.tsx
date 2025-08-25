@@ -1,8 +1,8 @@
 import React from "react"
 
 interface AvatarProps {
-    icon?: React.ReactNode
-    image?: string
+    id: number
+    avatar?: React.ReactNode
 }
 
 interface AvatarGroup {
@@ -15,18 +15,10 @@ export default function AvatarIcon({ items }: AvatarGroup) {
             {items.map((item, index) => (
                 <div
                     key={index}
-                    className={`w-10 h-10 rounded-full border-2 border-black flex items-center justify-center bg-gray-800 text-white ${index !== 0 ? "-ml-3" : ""
+                    className={`w-10 h-10 rounded-full border-1 flex items-center justify-center  bg-gray-800 text-white ${index !== 0 ? "-ml-3" : ""
                         }`}
                 >
-                    {item.image ? (
-                        <img
-                            src={item.image}
-                            alt={`avatar-${index}`}
-                            className="w-full h-full rounded-full object-cover"
-                        />
-                    ) : (
-                        item.icon
-                    )}
+                    {item.avatar}
                 </div>
             ))}
         </div>
