@@ -31,6 +31,7 @@ import CardProject from "../components/CardProject";
 import { project } from "@/data/data-project";
 import CardContact from "../components/CardContact";
 import AvatarIcon from "../components/AvatarIcon";
+import AnimateCounter from "../components/AnimateCounter";
 
 const SocialIcon = ({
   icon,
@@ -307,7 +308,7 @@ export default function Home() {
                   <h1>Archive</h1>
                 </div>
                 <div className="flex items-center gap-5 mt-5">
-                  <a href="#" className="flex flex-col items-center cursor-pointer">
+                  <a href="/music" className="flex flex-col items-center cursor-pointer">
                   <FaFolder size={40} className="text-white/40"/>
                   <div className="flex flex-col items-center">
                   <p className="text-sm">fav-
@@ -316,7 +317,7 @@ export default function Home() {
                   </div>
                   </a>
 
-                  <a href="#" className="flex flex-col items-center cursor-pointer">
+                  <a href="/gallery" className="flex flex-col items-center cursor-pointer">
                   <FaFolder size={40} className="text-white/40"/>
                   <div className="flex flex-col items-center">
                   <p className="text-sm">gallery
@@ -441,8 +442,15 @@ export default function Home() {
                           <div className="flex items-center gap-4 text-sm">
                             <ul className="flex gap-5">
                               <li>1 Posted</li>
-                              <li>440 Followers</li>
-                              <li>604 Following</li>
+                              <div className="flex items-center gap-2">
+                              <AnimateCounter from={0} to={436}/>
+                              <p>Followers</p>
+                              </div> 
+
+                              <div className="flex items-center gap-2">
+                              <AnimateCounter from={0} to={604}/>
+                              <p>Following</p>
+                              </div>
                             </ul>
                           </div>
 
@@ -483,18 +491,18 @@ export default function Home() {
                     <div className="flex justify-center">
                       <div className="flex items-center gap-4 text-sm mt-5">
                         <div className="font-sans text-lg font-semibold">
-                          <h1>310</h1>
+                              <AnimateCounter from={0} to={310}/>
                           <p className="text-sm text-white/40 ">Following</p>
                         </div>
                         <hr className="w-0.5 h-9 bg-white/30 rounded-full" />
                         <div className="font-sans text-lg font-semibold">
-                          <h1>839</h1>
+                              <AnimateCounter from={0} to={839}/> 
                           <p className="text-sm text-white/40 ">Followers</p>
                         </div>
                         <hr className="w-0.5 h-9 bg-white/30 rounded-full" />
 
                         <div className="font-sans text-lg font-semibold">
-                          <h1>42.1K</h1>
+                              <AnimateCounter from={0} to={42100}/>
                           <p className="text-sm text-white/40 ">Likes</p>
                         </div>
                       </div>
