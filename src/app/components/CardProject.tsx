@@ -1,8 +1,8 @@
 import { Project } from "@/types/project";
-import { FiShare, FiArrowUpRight } from "react-icons/fi";
+import { FiShare } from "react-icons/fi";
 import Image from "next/image";
 import AvatarIcon from "./AvatarIcon";
-import { FaReact } from "react-icons/fa";
+// import { FaReact } from "react-icons/fa";
 import React from "react";
 
 interface CardProjectProps {
@@ -14,13 +14,14 @@ export default function CardProject({ project, children }: CardProjectProps) {
   return (
     <div className="max-w-xl rounded-lg overflow-hidden shadow-lg bg-white/5 
     backdrop-blur-md border mx-auto flex flex-col justify-center items-center
-    border-white/10 hover:shadow-xl transition-all duration-300 group">
+    border-white/10 hover:shadow-xl transition-all duration-300 ">
       <div className="relative h-48 w-[380px] overflow-hidden rounded-md ">
         <Image
           src={project.image} size-72
           alt={project.title}
           fill
-          className="object-cover rounded-md mt-4 transition-transform duration-500 ease-in-out group-hover:scale-110"
+          className="object-cover rounded-md mt-4 transition-transform duration-500 ease-in-out 
+          group-hover:scale-110"
         />
       </div>
 
@@ -47,7 +48,8 @@ export default function CardProject({ project, children }: CardProjectProps) {
             <AvatarIcon
               items={project.icon.map((icon, idx) => ({ 
                 id: idx, 
-                avatar: icon 
+                avatar: icon,
+                label: project.techStack?.[idx]
               }))}
             />
           )}
