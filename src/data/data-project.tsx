@@ -21,7 +21,7 @@ export const project: Project[] = [
         description: "An educational platform that aims to raise awareness of the importance of healthy sleep...",
         image: "/assets/sleepwell.png",
         techStack: ['React', 'TailwindCSS', 'ThreeJS', 'Blender', 'Firebase'],
-        link: "#",
+        link: "https://sleepwellfortsix.vercel.app/",
         github: '',
         icon: [
             <FaReact key='react' size={20} />,
@@ -37,7 +37,7 @@ export const project: Project[] = [
         description: "A mobile finance app designed to help users track income, expenses, and savings in a simple way...",
         image: "/assets/finance.jpg",
         techStack: ['Laravel', 'TailwindCSS', 'Vite'],
-        link: "#",
+        link: "https://github.com/Bibintanggg/keuangan",
         github: '',
         icon: [
             <FaLaravel key='laravel' size={20} />,
@@ -52,7 +52,7 @@ export const project: Project[] = [
         description: "An educational platform to understand and appreciate the struggle of the Youth Pledge in uniting the nation...",
         image: "/assets/jejakpemuda.png",
         techStack: ['React', 'TailwindCSS', 'ThreeJS', 'Blender', 'MaterialUI'],
-        link: "#",
+        link: "https://jejakpemuda.vercel.app/",
         github: '',
         icon: [
             <FaReact key='react' size={20} />,
@@ -65,7 +65,7 @@ export const project: Project[] = [
     {
         id: 4,
         title: "Talent Force",
-        description: "A mobile finance app designed to help users track income, expenses, and savings in a simple way...",
+        description: "An employee management web app that provides features for logbook tracking, permit requests, and work monitoring.",
         image: "/assets/indi.jpg",
         techStack: ['React', 'TailwindCSS', 'Typescript', 'Laravel Inertia', 'Laravel', 'ShadCN', 'Swagger',],
         link: "#",
@@ -83,7 +83,7 @@ export const project: Project[] = [
     {
         id: 5,
         title: "Kanban",
-        description: "A mobile finance app designed to help users track income, expenses, and savings in a simple way...",
+        description: "A web-based kanban app designed to help users manage tasks and projects visually in a simple way.",
         image: "/assets/kanban.jpg",
         techStack: ['React', 'TailwindCSS', 'Typescript', 'Laravel Inertia', 'Laravel', 'ShadCN',],
         link: "#",
@@ -100,7 +100,7 @@ export const project: Project[] = [
     {
         id: 6,
         title: "Lecturer Quiz App",
-        description: "A mobile finance app designed to help users track income, expenses, and savings in a simple way...",
+        description: "A web application designed for lecturers to organize quizzes, monitor results, and support student learning.",
         image: "/assets/ucic.jpg",
         techStack: ['Laravel', 'TailwindCSS', 'Axios'],
         link: "#",
