@@ -18,7 +18,7 @@ import GitHubCalendar from 'react-github-calendar';
 import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineProject } from "react-icons/ai";
 import { BiArchive, BiLogoTypescript, BiMusic } from "react-icons/bi";
-import { SiTailwindcss } from "react-icons/si";
+import { SiTailwindcss, SiTensorflow } from "react-icons/si";
 import Navbar from "../components/Navbar";
 import { IoIosArrowForward, IoIosClose, IoIosArrowUp } from "react-icons/io";
 import { BsTools } from "react-icons/bs";
@@ -272,7 +272,12 @@ export default function Home() {
                         <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl hover:bg-red-500/10 transition-colors border border-gray-700">
                           <FaLaravel className="w-6 h-6 text-red-500" />
                         </div>
+
+                        <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl border border-gray-700">
+                          <span className="text-white text-sm font-semibold">+9</span>
+                        </div>
                       </div>
+
                     </Card>
                   )}
                 </div>
@@ -309,28 +314,28 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-5 mt-5">
                   <a href="/music" className="flex flex-col items-center cursor-pointer">
-                  <FaFolder size={40} className="text-white/40"/>
-                  <div className="flex flex-col items-center">
-                  <p className="text-sm">fav-
-                    <span>music</span>
-                  </p>
-                  </div>
+                    <FaFolder size={40} className="text-white/40" />
+                    <div className="flex flex-col items-center">
+                      <p className="text-sm">fav-
+                        <span>music</span>
+                      </p>
+                    </div>
                   </a>
 
                   <a href="/gallery" className="flex flex-col items-center cursor-pointer">
-                  <FaFolder size={40} className="text-white/40"/>
-                  <div className="flex flex-col items-center">
-                  <p className="text-sm">gallery
-                  </p>
-                  </div>
+                    <FaFolder size={40} className="text-white/40" />
+                    <div className="flex flex-col items-center">
+                      <p className="text-sm">gallery
+                      </p>
+                    </div>
                   </a>
 
                   <a href="#" className="flex flex-col items-center cursor-pointer">
-                  <FaFolder size={40} className="text-white/40"/>
-                  <div className="flex flex-col items-center">
-                  <p className="text-sm">bintang
-                  </p>
-                  </div>
+                    <FaFolder size={40} className="text-white/40" />
+                    <div className="flex flex-col items-center">
+                      <p className="text-sm">bintang
+                      </p>
+                    </div>
                   </a>
 
                 </div>
@@ -443,13 +448,13 @@ export default function Home() {
                             <ul className="flex gap-5">
                               <li>1 Posted</li>
                               <div className="flex items-center gap-2">
-                              <AnimateCounter from={0} to={436}/>
-                              <p>Followers</p>
-                              </div> 
+                                <AnimateCounter from={0} to={436} />
+                                <p>Followers</p>
+                              </div>
 
                               <div className="flex items-center gap-2">
-                              <AnimateCounter from={0} to={604}/>
-                              <p>Following</p>
+                                <AnimateCounter from={0} to={604} />
+                                <p>Following</p>
                               </div>
                             </ul>
                           </div>
@@ -491,18 +496,18 @@ export default function Home() {
                     <div className="flex justify-center">
                       <div className="flex items-center gap-4 text-sm mt-5">
                         <div className="font-sans text-lg font-semibold">
-                              <AnimateCounter from={0} to={310}/>
+                          <AnimateCounter from={0} to={310} />
                           <p className="text-sm text-white/40 ">Following</p>
                         </div>
                         <hr className="w-0.5 h-9 bg-white/30 rounded-full" />
                         <div className="font-sans text-lg font-semibold">
-                              <AnimateCounter from={0} to={839}/> 
+                          <AnimateCounter from={0} to={839} />
                           <p className="text-sm text-white/40 ">Followers</p>
                         </div>
                         <hr className="w-0.5 h-9 bg-white/30 rounded-full" />
 
                         <div className="font-sans text-lg font-semibold">
-                              <AnimateCounter from={0} to={42100}/>
+                          <AnimateCounter from={0} to={42100} />
                           <p className="text-sm text-white/40 ">Likes</p>
                         </div>
                       </div>
