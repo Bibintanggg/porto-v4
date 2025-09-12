@@ -94,7 +94,9 @@ export default function Home() {
   const [showDetailedAbout, setShowDetailedAbout] = useState(false);
   const [visibleProjects, setVisibleProjects] = useState(2);
   const [toggleButton, setToggleButton] = useState('projects');
-
+  
+  const [isStack, setIsStack] = useState(false);
+  const[stack, setStack] = useState('show');
   // const [toggleProjects, setToggleProjects] = useState('projects');
 
   const toggleView = (view: string) => {
@@ -273,9 +275,11 @@ export default function Home() {
                           <FaLaravel className="w-6 h-6 text-red-500" />
                         </div>
 
-                        <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full backdrop-blur-2xl border border-gray-700">
+                        <button
+                        onClick={() => setIsStack(!isStack)} 
+                        className="w-12 h-12 bg-white/5 cursor-pointer flex items-center justify-center rounded-full backdrop-blur-2xl border border-gray-700">
                           <span className="text-white text-sm font-semibold">+9</span>
-                        </div>
+                        </button>
                       </div>
 
                     </Card>
@@ -283,6 +287,28 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            <AnimatePresence>
+  {isStack && (
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      className="absolute mt-2 p-4 w-64 bg-white/10 backdrop-blur-2xl justify-center items-center rounded-md border border-gray-600 z-50 grid grid-cols-3 gap-2"
+    >
+      <div className="flex items-center justify-center w-12 h-12 bg-white/5 rounded-full">
+        <FaGithub className="text-gray-300 w-6 h-6" />
+      </div>
+      <div className="flex items-center justify-center w-12 h-12 bg-white/5 rounded-full">
+        <SiTensorflow className="text-orange-400 w-6 h-6" />
+      </div>
+      <div className="flex items-center justify-center w-12 h-12 bg-white/5 rounded-full">
+        <BiMusic className="text-purple-400 w-6 h-6" />
+      </div>
+      {/* Tambahkan icon stack lainnya */}
+    </motion.div>
+  )}
+</AnimatePresence>
 
             <div className="flex gap-2">
               <Card shiny className="w-[240px] h-[200px]">
