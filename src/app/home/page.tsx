@@ -12,13 +12,15 @@ import {
   FaUserNinja,
   FaUserCircle,
   FaUserFriends,
-  FaFolder
+  FaFolder,
+  FaHtml5,
+  FaPython
 } from "react-icons/fa";
 import GitHubCalendar from 'react-github-calendar';
 import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineProject } from "react-icons/ai";
 import { BiArchive, BiLogoTypescript, BiMusic } from "react-icons/bi";
-import { SiTailwindcss, SiTensorflow } from "react-icons/si";
+import { SiMysql, SiNextdotjs, SiTailwindcss, SiTensorflow, SiTypescript } from "react-icons/si";
 import Navbar from "../components/Navbar";
 import { IoIosArrowForward, IoIosClose, IoIosArrowUp } from "react-icons/io";
 import { BsTools } from "react-icons/bs";
@@ -32,6 +34,8 @@ import { project } from "@/data/data-project";
 import CardContact from "../components/CardContact";
 import AvatarIcon from "../components/AvatarIcon";
 import AnimateCounter from "../components/AnimateCounter";
+import { DiJavascript } from "react-icons/di";
+import { FaGolang } from "react-icons/fa6";
 
 const SocialIcon = ({
   icon,
@@ -94,9 +98,9 @@ export default function Home() {
   const [showDetailedAbout, setShowDetailedAbout] = useState(false);
   const [visibleProjects, setVisibleProjects] = useState(2);
   const [toggleButton, setToggleButton] = useState('projects');
-  
+
   const [isStack, setIsStack] = useState(false);
-  const[stack, setStack] = useState('show');
+  const [stack, setStack] = useState('show');
   // const [toggleProjects, setToggleProjects] = useState('projects');
 
   const toggleView = (view: string) => {
@@ -275,9 +279,10 @@ export default function Home() {
                           <FaLaravel className="w-6 h-6 text-red-500" />
                         </div>
 
+                        {/* Tombol +9 */}
                         <button
-                        onClick={() => setIsStack(!isStack)} 
-                        className="w-12 h-12 bg-white/5 cursor-pointer flex items-center justify-center rounded-full backdrop-blur-2xl border border-gray-700">
+                          onClick={() => setIsStack(true)}
+                          className="w-12 h-12 bg-white/5 cursor-pointer flex items-center justify-center rounded-full backdrop-blur-2xl border border-gray-700">
                           <span className="text-white text-sm font-semibold">+9</span>
                         </button>
                       </div>
@@ -289,26 +294,85 @@ export default function Home() {
             </div>
 
             <AnimatePresence>
-  {isStack && (
-    <motion.div
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      className="absolute mt-2 p-4 w-64 bg-white/10 backdrop-blur-2xl justify-center items-center rounded-md border border-gray-600 z-50 grid grid-cols-3 gap-2"
-    >
-      <div className="flex items-center justify-center w-12 h-12 bg-white/5 rounded-full">
-        <FaGithub className="text-gray-300 w-6 h-6" />
-      </div>
-      <div className="flex items-center justify-center w-12 h-12 bg-white/5 rounded-full">
-        <SiTensorflow className="text-orange-400 w-6 h-6" />
-      </div>
-      <div className="flex items-center justify-center w-12 h-12 bg-white/5 rounded-full">
-        <BiMusic className="text-purple-400 w-6 h-6" />
-      </div>
-      {/* Tambahkan icon stack lainnya */}
-    </motion.div>
-  )}
-</AnimatePresence>
+              {isStack && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50"
+                >
+                  <motion.div
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.9, opacity: 0 }}
+                    className="bg-white/10 backdrop-blur-2xl rounded-xl p-6 border border-gray-700 gap-4 relative"
+                  >
+                    <button
+                      onClick={() => setIsStack(false)}
+                      className="absolute top-3 right-3 text-white hover:text-red-400 transition-colors"
+                    >
+                      <IoIosClose size={28} />
+                    </button>
+
+                    <div className="flex flex-col">
+                      <h1>Stack</h1>
+                      <hr className="w-20 border border-white/20 " />
+                      <div className="flex items-center gap-2 mt-2">
+
+                        <div className="flex flex-col">
+                          <h1>Web Development</h1>
+                          <div className="grid grid-cols-7 items-center gap-4 mt-2">
+                            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/5">
+                              <FaReact className="text-blue-500 w-6 h-6" />
+                            </div>
+                            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/5">
+                              <FaLaravel className="text-red-400 w-6 h-6" />
+                            </div>
+                            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/5">
+                              <SiTypescript className="text-blue-500 w-6 h-6" />
+                            </div>
+                            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/5">
+                              <FaHtml5 className="text-red-300 w-6 h-6" />
+                            </div>
+                            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/5">
+                              <FaCss3 className="text-blue-500 w-6 h-6" />
+                            </div>
+                            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/5">
+                              <SiNextdotjs className=" w-6 h-6" />
+                            </div>
+                            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/5">
+                              <DiJavascript className="text-yellow-300 w-6 h-6" />
+                            </div>
+                          </div>
+
+                          <h1 className="mt-4">Database</h1>
+                          <div className="grid grid-cols-5 items-center gap-4 mt-2">
+                            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/5">
+                              <SiMysql className=" w-8 h-8" />
+                            </div>
+                          </div>
+
+                          <h1 className="mt-4">Currently Learning</h1>
+                          <div className="flex items-center gap-4 mt-2">
+                            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/5">
+                              <FaGolang className="text-blue-500 w-6 h-6" />
+                            </div>
+                            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/5">
+                              <SiTensorflow className="text-yellow-500 w-6 h-6" />
+                            </div>
+                            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white/5">
+                              <FaPython className="text-yellow-500 w-6 h-6" />
+                            </div>
+                          </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             <div className="flex gap-2">
               <Card shiny className="w-[240px] h-[200px]">
